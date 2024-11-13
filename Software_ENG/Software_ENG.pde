@@ -1,11 +1,26 @@
 import g4p_controls.*; 
 
-void setup(){
+// Main sketch file
+Salary salary;
+Graph graph;
+int numYears = 10; // Number of years for projection
 
-
-
+void setup() {
+  size(1000, 600);
+  salary = new Salary(200000);     // Fixed salary of 100,000 USD per year
+  float[] yearlyBalances = salary.calculateBalances(numYears);  // Get balances over 10 years
+  graph = new Graph(yearlyBalances, numYears); // Pass balances to Graph for drawing
 }
 
 
-void draw(){
+
+void draw() {
+  background(255);
+  fill(0);
+  textSize(12);
+  text("Debugging text: Checking if text renders", 10, 20);
+  
+  graph.drawGraph(); // Display the graph using the Graph class
 }
+
+// 

@@ -1,16 +1,16 @@
-class Salary{
-  float amount;
-  String per_annum_frequency;
-  
-  Salary(float a, String PAF){
-  this.amount = a;
-  this.per_annum_frequency = PAF;
-  
-  
+class Salary {
+  float annualSalary;
+
+  Salary(float annualSalary) {
+    this.annualSalary = annualSalary;
   }
-  
-  //Fields
-  // amount
-  //frequency  
-  
+
+  // Method to calculate balances over a given number of years
+  float[] calculateBalances(int years) {
+    float[] balances = new float[years];
+    for (int i = 0; i < years; i++) {
+      balances[i] = annualSalary * (i + 1);  // Cumulative balance each year
+    }
+    return balances;
+  }
 }
