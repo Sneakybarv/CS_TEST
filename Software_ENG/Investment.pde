@@ -1,0 +1,4 @@
+class Investment {
+  // Fields
+  
+}
