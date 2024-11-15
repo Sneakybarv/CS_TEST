@@ -23,7 +23,7 @@ public void salary_change1(GCustomSlider source, GEvent event) { //_CODE_:Salary
   
   // Update the salary based on slider's value
   float newSalary = Salary_slider.getValueF(); // No scaling if the slider is directly set to the desired range
-  salary.annualSalary = newSalary;
+  salaries.get(0).annualSalary = newSalary;
   
   // Recalculate the graph based on the new salary
   updateGraph();

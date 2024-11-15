@@ -1,10 +1,10 @@
 class Graph {
   float[] balances;
-  int years;
+  //int years;
 
-  Graph(float[] balances, int years) {
+  Graph(float[] balances ) {
     this.balances = balances;
-    this.years = years;
+    //this.years = years;
   }
 
   void drawGraph() {
@@ -15,7 +15,7 @@ class Graph {
     float graphY = 100;
     float graphWidth = width - 300;
     float graphHeight = height - 300;
-    float maxBalance = balances[years - 1];
+    float maxBalance = balances[numMonths - 1];
 
     // Draw axis lines
     stroke(0);
@@ -23,8 +23,8 @@ class Graph {
     line(graphX, graphY, graphX, graphY + graphHeight);                             // Y-axis
 
     // X-axis: Labels and ticks
-    for (int i = 0; i < years; i++) {
-      float x = graphX + (i * graphWidth / (years - 1));
+    for (int i = 0; i < numYears; i++) {
+      float x = graphX + (i * graphWidth / (numYears - 1));
       line(x, graphY + graphHeight, x, graphY + graphHeight + 5);   // Tick mark
       textAlign(CENTER);
       text("Year " + (i + 1), x, graphY + graphHeight + 20);       // Label year number
@@ -44,8 +44,8 @@ class Graph {
     noFill();
     stroke(0, 0, 255);
     beginShape();
-    for (int i = 0; i < years; i++) {
-      float x = graphX + (i * graphWidth / (years - 1));
+    for (int i = 0; i < numMonths; i++) {
+      float x = graphX + (i * graphWidth / (numMonths - 1));
       float y = graphY + graphHeight - (balances[i] * graphHeight / maxBalance);
       vertex(x, y);
     }
