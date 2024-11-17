@@ -19,11 +19,11 @@ synchronized public void win_draw1(PApplet appc, GWinData data) { //_CODE_:windo
 } //_CODE_:window1:271839:
 
 public void salary_change1(GCustomSlider source, GEvent event) { //_CODE_:Salary_slider:852392:
-  println("custom_slider1 - GCustomSlider >> GEvent." + event + " @ " + millis());
+  //println("custom_slider1 - GCustomSlider >> GEvent." + event + " @ " + millis());
   
   // Update the salary based on slider's value
   float newSalary = Salary_slider.getValueF(); // No scaling if the slider is directly set to the desired range
-  salaries.get(0).annualSalary = newSalary;
+  salaries.get(0).updateSalary( newSalary);
   
   // Recalculate the graph based on the new salary
   updateGraph();

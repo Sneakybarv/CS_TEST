@@ -7,6 +7,11 @@ class Salary {
     this.monthlyPay = annualSalary/12;
   }
 
+  void updateSalary(float annualSalary)
+  {
+       this.annualSalary = annualSalary;
+    this.monthlyPay = annualSalary/12;
+  }
    //Method to calculate balances over a given number of years
   float[] calculateBalances(int years) {
     float[] balances = new float[years];
