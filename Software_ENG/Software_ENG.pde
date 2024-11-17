@@ -29,7 +29,8 @@ void setup() {
   
   initalMoney = 100000;
 
-  updateGraph();
+  updateGraph();  
+  
 }
 
 
@@ -39,6 +40,7 @@ void draw() {
   fill(0);
   textSize(12);
   graph.drawGraph(); // Display the graph using the Graph class
+  
 }
 
 //

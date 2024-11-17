@@ -43,9 +43,9 @@ public void createGUI(){
   window1.setActionOnClose(G4P.KEEP_OPEN);
   window1.addDrawHandler(this, "win_draw1");
   Salary_slider = new GCustomSlider(window1, 70, 40, 100, 40, "grey_blue");
-  Salary_slider.setLimits(20000.0, 0.0, 100000.0);
+  Salary_slider.setLimits(20000, 0, 100000);
   Salary_slider.setNbrTicks(100);
-  Salary_slider.setNumberFormat(G4P.DECIMAL, 0);
+  Salary_slider.setNumberFormat(G4P.INTEGER, 0);
   Salary_slider.setOpaque(false);
   Salary_slider.addEventHandler(this, "salary_change1");
   window1.loop();
