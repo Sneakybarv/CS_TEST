@@ -9,6 +9,14 @@ class Debt {
     this.remainingAmount = initialAmount;
   }
 
+   void updateDebtAmount(float newDebtAmount) {
+     this.initialAmount = newDebtAmount;
+   }
+   
+   void updateDebtPayment(float newDebtPayment) {
+     this.monthlyPayment = newDebtPayment;
+   }
+
   float calcNet(int month) {
     if (remainingAmount > 0) {
       float payment = min(monthlyPayment, remainingAmount);

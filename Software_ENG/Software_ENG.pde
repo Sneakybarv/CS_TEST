@@ -25,7 +25,7 @@ void setup() {
   // Sample data
   recPayments.add(new RecPayment(100, 1));   // Recurring payment of $100 every month
   salaries.add(new Salary(50000));          // Annual salary of $200,000
-  debts.add(new Debt(100000, 10000));           // Debt: $100,000 with $1000 monthly payment
+  debts.add(new Debt(100000, 1000));           // Debt: $100,000 with $1000 monthly payment
   initalMoney = 0;                      // Starting with $100,000
 
   updateGraph();

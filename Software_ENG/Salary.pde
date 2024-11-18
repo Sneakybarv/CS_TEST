@@ -9,7 +9,7 @@ class Salary {
 
   void updateSalary(float annualSalary)
   {
-       this.annualSalary = annualSalary;
+    this.annualSalary = annualSalary;
     this.monthlyPay = annualSalary/12;
   }
   // Method to calculate balances over a given number of years
