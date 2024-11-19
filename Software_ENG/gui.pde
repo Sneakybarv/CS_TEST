@@ -14,43 +14,17 @@
  * =========================================================
  */
 
-public void custom_slider1_change1(GCustomSlider source, GEvent event) { //_CODE_:Debt_Amount:831360:
-  //println("Debt_Amount - GCustomSlider >> GEvent." + event + " @ " + millis());
-  
-  float newDebtAmount = Debt_Amount.getValueF(); // No scaling if the slider is directly set to the desired range
-  debts.get(0).updateDebtAmount(newDebtAmount);
-  
-  updateGraph();
-} //_CODE_:Debt_Amount:831360:
+public void custom_slider1_change1(GCustomSlider source, GEvent event) { //_CODE_:custom_slider1:428630:
+  println("custom_slider1 - GCustomSlider >> GEvent." + event + " @ " + millis());
+} //_CODE_:custom_slider1:428630:
 
-public void custom_slider1_change2(GCustomSlider source, GEvent event) { //_CODE_:Debt_Monthly_Payment:772249:
-  //println("Debt_Monthly_Payment - GCustomSlider >> GEvent." + event + " @ " + millis());
-  
-  float newDebtPayment = Debt_Monthly_Payment.getValueF(); // No scaling if the slider is directly set to the desired range
-  debts.get(0).updateDebtPayment(newDebtPayment);
-  
-  updateGraph();
-} //_CODE_:Debt_Monthly_Payment:772249:
+public void custom_slider2_change1(GCustomSlider source, GEvent event) { //_CODE_:custom_slider2:783821:
+  println("custom_slider2 - GCustomSlider >> GEvent." + event + " @ " + millis());
+} //_CODE_:custom_slider2:783821:
 
-public void custom_slider1_change3(GCustomSlider source, GEvent event) { //_CODE_:Salary_Slider:233947:
-  //println("Salary_Slider - GCustomSlider >> GEvent." + event + " @ " + millis());
-  // Update the salary based on slider's value
-  float newSalary = Salary_Slider.getValueF(); // No scaling if the slider is directly set to the desired range
-  salaries.get(0).updateSalary( newSalary);
-  
-  // Recalculate the graph based on the new salary
-  updateGraph();
-} //_CODE_:Salary_Slider:233947:
-
-synchronized public void win_draw1(PApplet appc, GWinData data) { //_CODE_:window1:271839:
-  appc.background(230);
-} //_CODE_:window1:271839:
-
-public void salary_change1(GCustomSlider source, GEvent event) { //_CODE_:Salary_slider:852392:
-  //println("custom_slider1 - GCustomSlider >> GEvent." + event + " @ " + millis());
-  
-  
-} //_CODE_:Salary_slider:852392:
+public void custom_slider3_change1(GCustomSlider source, GEvent event) { //_CODE_:custom_slider3:663513:
+  println("custom_slider3 - GCustomSlider >> GEvent." + event + " @ " + millis());
+} //_CODE_:custom_slider3:663513:
 
 
 
@@ -61,51 +35,25 @@ public void createGUI(){
   G4P.setGlobalColorScheme(GCScheme.BLUE_SCHEME);
   G4P.setMouseOverEnabled(false);
   surface.setTitle("Sketch Window");
-  Debt_Amount = new GCustomSlider(this, 21, 521, 117, 62, "grey_blue");
-  Debt_Amount.setShowValue(true);
-  Debt_Amount.setShowLimits(true);
-  Debt_Amount.setLimits(50000.0, 0.0, 100000.0);
-  Debt_Amount.setShowTicks(true);
-  Debt_Amount.setNumberFormat(G4P.DECIMAL, 2);
-  Debt_Amount.setOpaque(false);
-  Debt_Amount.addEventHandler(this, "custom_slider1_change1");
-  Debt_Monthly_Payment = new GCustomSlider(this, 174, 520, 116, 63, "grey_blue");
-  Debt_Monthly_Payment.setShowValue(true);
-  Debt_Monthly_Payment.setShowLimits(true);
-  Debt_Monthly_Payment.setLimits(100.0, 100.0, 10000.0);
-  Debt_Monthly_Payment.setShowTicks(true);
-  Debt_Monthly_Payment.setNumberFormat(G4P.DECIMAL, 2);
-  Debt_Monthly_Payment.setOpaque(false);
-  Debt_Monthly_Payment.addEventHandler(this, "custom_slider1_change2");
-  Salary_Slider = new GCustomSlider(this, 797, 508, 134, 64, "grey_blue");
-  Salary_Slider.setShowValue(true);
-  Salary_Slider.setShowLimits(true);
-  Salary_Slider.setLimits(20000.0, 0.0, 200000.0);
-  Salary_Slider.setShowTicks(true);
-  Salary_Slider.setNumberFormat(G4P.DECIMAL, 2);
-  Salary_Slider.setOpaque(true);
-  Salary_Slider.addEventHandler(this, "custom_slider1_change3");
-  window1 = GWindow.getWindow(this, "Window title", 0, 0, 240, 120, JAVA2D);
-  window1.noLoop();
-  window1.setActionOnClose(G4P.KEEP_OPEN);
-  window1.addDrawHandler(this, "win_draw1");
-  Salary_slider = new GCustomSlider(window1, 24, 19, 139, 89, "grey_blue");
-  Salary_slider.setShowValue(true);
-  Salary_slider.setShowLimits(true);
-  Salary_slider.setLimits(20000, 0, 100000);
-  Salary_slider.setNbrTicks(10);
-  Salary_slider.setStickToTicks(true);
-  Salary_slider.setShowTicks(true);
-  Salary_slider.setNumberFormat(G4P.INTEGER, 0);
-  Salary_slider.setOpaque(true);
-  Salary_slider.addEventHandler(this, "salary_change1");
-  window1.loop();
+  custom_slider1 = new GCustomSlider(this, 17, 261, 100, 40, "grey_blue");
+  custom_slider1.setLimits(0.5, 0.0, 1.0);
+  custom_slider1.setNumberFormat(G4P.DECIMAL, 2);
+  custom_slider1.setOpaque(false);
+  custom_slider1.addEventHandler(this, "custom_slider1_change1");
+  custom_slider2 = new GCustomSlider(this, 154, 256, 100, 40, "grey_blue");
+  custom_slider2.setLimits(0.5, 0.0, 1.0);
+  custom_slider2.setNumberFormat(G4P.DECIMAL, 2);
+  custom_slider2.setOpaque(false);
+  custom_slider2.addEventHandler(this, "custom_slider2_change1");
+  custom_slider3 = new GCustomSlider(this, 358, 258, 100, 40, "grey_blue");
+  custom_slider3.setLimits(0.5, 0.0, 1.0);
+  custom_slider3.setNumberFormat(G4P.DECIMAL, 2);
+  custom_slider3.setOpaque(false);
+  custom_slider3.addEventHandler(this, "custom_slider3_change1");
 }
 
 // Variable declarations 
 // autogenerated do not edit
-GCustomSlider Debt_Amount; 
-GCustomSlider Debt_Monthly_Payment; 
-GCustomSlider Salary_Slider; 
-GWindow window1;
-GCustomSlider Salary_slider; 
+GCustomSlider custom_slider1; 
+GCustomSlider custom_slider2; 
+GCustomSlider custom_slider3; 
