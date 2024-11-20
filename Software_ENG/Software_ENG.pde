@@ -6,6 +6,10 @@ Graph graph;
 int numYears = 10; // Number of years for projection
 int numMonths = numYears * 12;
 
+String screen;
+String prevScreen;
+String nextPrevScreen;
+
 // Lists of finance elements:
 ArrayList<RecPayment> recPayments = new ArrayList<RecPayment>();
 ArrayList<Salary> salaries = new ArrayList<Salary>();
@@ -19,8 +23,11 @@ void updateGraph() {
 }
 
 void setup() {
-  size(1000, 600);
+  size(800, 600);
   createGUI();
+  
+  // Go to overview screen at setup
+  screen = "overview";
 
   // Sample data
   recPayments.add(new RecPayment(100, 1));   // Recurring payment of $100 every month
@@ -35,5 +42,6 @@ void draw() {
   background(255);
   fill(0);
   textSize(12);
-  graph.drawGraph(); // Display the graph using the Graph class
+  //graph.drawGraph(); // Display the graph using the Graph class
+  displayScreen();
 }
