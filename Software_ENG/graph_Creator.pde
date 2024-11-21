@@ -1,10 +1,13 @@
-class Graph {
+class Graph {  //The main graph
+//Feilds
   float[] balances;
-
+  
+//Constructor
   Graph(float[] balances) {
     this.balances = balances;
   }
-
+  
+//Methods
   void drawGraph() {
     textSize(12);
     fill(0);

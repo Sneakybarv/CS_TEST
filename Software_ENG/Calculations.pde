@@ -1,8 +1,7 @@
-float[] calculateAllPoints() {
+float[] calculateAllPoints() {    //calculating money
   float[] balances = new float[numMonths];
   float currentMoney = initalMoney;
   float netMonthly;
-
 
   for (Debt debt : debts) {
     debt.reset();
@@ -21,12 +20,12 @@ float[] calculateAllPoints() {
       netMonthly += recPayments.get(x).calcNet(month);
     }
 
- 
+    //Subtract debt
     for (int x = 0; x < debts.size(); x++) {
       netMonthly += debts.get(x).calcNet(month);
     }
 
-
+    //final balance
     balances[month] = currentMoney + netMonthly;
     currentMoney = balances[month];
 

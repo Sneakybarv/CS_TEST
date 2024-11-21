@@ -1,23 +1,26 @@
-class Debt {
+class Debt {  //Debt
+//Fields
   float initialAmount;
   float monthlyPayment;
   float remainingAmount;
 
+//Constructor
   Debt(float initialAmount, float monthlyPayment) {
     this.initialAmount = initialAmount;
     this.monthlyPayment = monthlyPayment;
     this.remainingAmount = initialAmount;
   }
 
-   void updateDebtAmount(float newDebtAmount) {
+//Methods
+   void updateDebtAmount(float newDebtAmount) {  //Updating amount fo debt
      this.initialAmount = newDebtAmount;
    }
    
-   void updateDebtPayment(float newDebtPayment) {
+   void updateDebtPayment(float newDebtPayment) {  //Updating frequency with new amount
      this.monthlyPayment = newDebtPayment;
    }
 
-  float calcNet(int month) {
+  float calcNet(int month) { 
     if (remainingAmount > 0) {
       float payment = min(monthlyPayment, remainingAmount);
       remainingAmount -= payment;
