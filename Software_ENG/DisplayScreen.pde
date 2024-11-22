@@ -1,4 +1,4 @@
-void displayScreen() {
+void displayScreen() {  //Display screen
 
   if(screen.equals("overview")) {
   
