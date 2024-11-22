@@ -25,6 +25,14 @@ void displayScreen() {  //Display screen
     Graph.setVisible(true);
     Back.setVisible(false);
     
+    // Show/hide relevant sliders
+    SalarySlider.setVisible(false);
+    DebtAmount.setVisible(false);
+    DebtMonthlyPayment.setVisible(false);
+    
+    RecAmount.setVisible(false);
+    RecFreq.setVisible(false);
+    
   }
   
   else if(screen.equals("graph")) {
@@ -54,6 +62,161 @@ void displayScreen() {  //Display screen
     
     //Hide display button
     Graph.setVisible(false);
+    
+    // Show/hide relevant sliders
+    SalarySlider.setVisible(false);
+    DebtAmount.setVisible(false);
+    DebtMonthlyPayment.setVisible(false);
+    RecAmount.setVisible(false);
+    RecFreq.setVisible(false);
+    
+  }
+  
+  else if(screen.equals("editSalary")) {
+    graph.drawGraph();
+    updateGraph();
+    
+    // Show Back button
+    Back.setVisible(true);
+    
+        // Hide Labels
+    SalaryLabel.setVisible(false);
+    DebtLabel.setVisible(false);
+    InvestmentLabel.setVisible(false);
+    RecLabel.setVisible(false);
+    
+    // Hide dropdowns
+    SalarySelect.setVisible(false);
+    DebtSelect.setVisible(false);
+    InvestmentSelect.setVisible(false);
+    RecSelect.setVisible(false);
+    
+    //Hide Edit Buttons
+    EditSalary.setVisible(false);
+    EditDebt.setVisible(false);
+    EditInvestment.setVisible(false);
+    EditRec.setVisible(false);
+    
+    //Hide display button
+    Graph.setVisible(false);
+    
+    // Show/hide relevant sliders
+    SalarySlider.setVisible(true);
+    DebtAmount.setVisible(false);
+    DebtMonthlyPayment.setVisible(false);
+    RecAmount.setVisible(false);
+    RecFreq.setVisible(false);
+    
+  }
+  
+  else if(screen.equals("editDebt")) {
+    graph.drawGraph();
+    updateGraph();
+    
+    // Show Back button
+    Back.setVisible(true);
+    
+        // Hide Labels
+    SalaryLabel.setVisible(false);
+    DebtLabel.setVisible(false);
+    InvestmentLabel.setVisible(false);
+    RecLabel.setVisible(false);
+    
+    // Hide dropdowns
+    SalarySelect.setVisible(false);
+    DebtSelect.setVisible(false);
+    InvestmentSelect.setVisible(false);
+    RecSelect.setVisible(false);
+    
+    //Hide Edit Buttons
+    EditSalary.setVisible(false);
+    EditDebt.setVisible(false);
+    EditInvestment.setVisible(false);
+    EditRec.setVisible(false);
+    
+    //Hide display button
+    Graph.setVisible(false);
+    
+    // Show/hide relevant sliders
+    SalarySlider.setVisible(false);
+    DebtAmount.setVisible(true);
+    DebtMonthlyPayment.setVisible(true);
+    RecAmount.setVisible(false);
+    RecFreq.setVisible(false);
+    
+  }
+  
+  else if(screen.equals("editInvestment")) {
+    graph.drawGraph();
+    updateGraph();
+    
+    // Show Back button
+    Back.setVisible(true);
+    
+        // Hide Labels
+    SalaryLabel.setVisible(false);
+    DebtLabel.setVisible(false);
+    InvestmentLabel.setVisible(false);
+    RecLabel.setVisible(false);
+    
+    // Hide dropdowns
+    SalarySelect.setVisible(false);
+    DebtSelect.setVisible(false);
+    InvestmentSelect.setVisible(false);
+    RecSelect.setVisible(false);
+    
+    //Hide Edit Buttons
+    EditSalary.setVisible(false);
+    EditDebt.setVisible(false);
+    EditInvestment.setVisible(false);
+    EditRec.setVisible(false);
+    
+    //Hide display button
+    Graph.setVisible(false);
+    
+    // Show/hide relevant sliders
+    SalarySlider.setVisible(false);
+    DebtAmount.setVisible(false);
+    DebtMonthlyPayment.setVisible(false);
+    RecAmount.setVisible(false);
+    RecFreq.setVisible(false);
+    
+  }
+  
+  else if(screen.equals("editRecurring")) {
+    graph.drawGraph();
+    updateGraph();
+    
+    // Show Back button
+    Back.setVisible(true);
+    
+        // Hide Labels
+    SalaryLabel.setVisible(false);
+    DebtLabel.setVisible(false);
+    InvestmentLabel.setVisible(false);
+    RecLabel.setVisible(false);
+    
+    // Hide dropdowns
+    SalarySelect.setVisible(false);
+    DebtSelect.setVisible(false);
+    InvestmentSelect.setVisible(false);
+    RecSelect.setVisible(false);
+    
+    //Hide Edit Buttons
+    EditSalary.setVisible(false);
+    EditDebt.setVisible(false);
+    EditInvestment.setVisible(false);
+    EditRec.setVisible(false);
+    
+    //Hide display button
+    Graph.setVisible(false);
+    
+    // Show/hide relevant sliders
+    SalarySlider.setVisible(false);
+    DebtAmount.setVisible(false);
+    DebtMonthlyPayment.setVisible(false);
+    RecAmount.setVisible(true);
+    RecFreq.setVisible(true);
     
   }
 }
