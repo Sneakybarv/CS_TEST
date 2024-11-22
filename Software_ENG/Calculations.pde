@@ -25,13 +25,21 @@ float[] calculateAllPoints() {    //calculating money
       netMonthly += debts.get(x).calcNet(month);
     }
 
-    //final balance
+
+    for (int x = 0; x < invest.size(); x++) {
+    
+      netMonthly += invest.get(x).calcNet(month);
+    }
+
+
+
     balances[month] = currentMoney + netMonthly;
     currentMoney = balances[month];
 
 
 
   }
+  
 
   return balances;
 }

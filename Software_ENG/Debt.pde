@@ -1,5 +1,8 @@
-class Debt {  //Debt
-//Fields
+
+//te
+
+class Debt {
+
   float initialAmount;
   float monthlyPayment;
   float remainingAmount;
