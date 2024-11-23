@@ -1,40 +1,81 @@
 class Investment {
   // Fields
-  float initAmount;      // Initial investment amount
-  float contribution;    // Contribution amount
-  float returnRate;      // Annual return rate 
-  //int contribFreq;       // Contribution frequency 
-  //int compoundFreq;      // Compounding frequency 
-  float currentBalance;  // Tracks the current balance of the investment
+  float initialAmount;       // Initial investment amount
+  float monthlyContribution; // Monthly contribution
+  float annualRate;          // Annual interest rate 
+  int compoundingFrequency;  // Times per year interest is compounded (
+  int durationYears;         // Investment duration in years
+  float currentBalance;      // Tracks the balance for calculations
+  int monthsElapsed;         // Tracks the number of months since the start of the investment
 
-  //int maxYears;          // Maximum years for investment
-  //int totalMonths;       // Maximum months based on years
-
-
-
-  // Constructor
-  Investment(float IA, float c, float RR, int cf, int compf, int years) {
-    this.initAmount = IA;
-    this.contribution = c;
-    this.returnRate = RR;
-    //this.contribFreq = cf;
-    //this.compoundFreq = compf;
-    this.currentBalance = IA;
-    //this.maxYears = years;
-    //this.totalMonths = years * 12; // Convert years to months
+  // constructor
+  Investment(float initialAmount, float monthlyContribution, float annualRate, int compoundingFrequency, int durationYears) {
+    this.initialAmount = initialAmount;
+    this.monthlyContribution = monthlyContribution;
+    this.annualRate = annualRate;
+    this.compoundingFrequency = compoundingFrequency;
+    this.durationYears = durationYears;
+    this.currentBalance = initialAmount; // Start with the initial amount
+    this.monthsElapsed = 0; // Investment starts at month 0
   }
 
-  // Method to calculate the effect of the investment for a specific month
+  // Calculate the  effect of contributions and interest for a given month
   float calcNet(int month) {
-    //// If the month exceeds the maximum allowed, return the final balance
-    //if (month > totalMonths) {
-    //  return currentBalance - initAmount; // Maintain final value after stopping
-    //}
+    int totalMonths = durationYears * 12;
+    if (month >= totalMonths) {
+      return 0; // Investment period over, no contribution 
+    }
 
-    //// Apply compound interest for this month
-    //float monthlyRate = returnRate / compoundFreq; // Convert annual rate to monthly rate
-    //currentBalance += currentBalance * monthlyRate;
+    // Start fresh if it's the first month 
+    if (month == 0) {
+      currentBalance = initialAmount; // Reset to initial amount
+      monthsElapsed = 0; // Reset the months counter
+    }
 
-    return currentBalance - initAmount; // Return the change in balance since start
+    // Add monthly contribution
+    currentBalance += monthlyContribution;
+
+    // Apply interest for the month
+    float monthlyRate = annualRate / 12; // Convert annual rate to monthly rate
+    currentBalance *= (1 + monthlyRate);
+
+    monthsElapsed++; 
+
+    // Return the net growth 
+    return currentBalance - (initialAmount + monthlyContribution * monthsElapsed);
+  }
+
+  // Update methods for different parameters
+  void updateInitialAmount(float newAmount) {
+    this.initialAmount = newAmount;
+    reset(); // Reset balance and recalculate with new initial amount
+  }
+
+  void updateMonthlyContribution(float newContribution) {
+    this.monthlyContribution = newContribution;
+  }
+
+  void updateAnnualRate(float newRate) {
+    this.annualRate = newRate;
+  }
+
+  void updateDurationYears(int newDuration) {
+    this.durationYears = newDuration;
+  }
+
+  // Reset the balance to the recalculated amount 
+  void reset() {
+    currentBalance = initialAmount;
+    monthsElapsed = 0;
+  }
+
+  // Check if the investment period is over
+  boolean isInvestmentPeriodOver() {
+    return monthsElapsed >= durationYears * 12;
+  }
+
+  // Get the current balance
+  float getBalance() {
+    return currentBalance;
   }
 }

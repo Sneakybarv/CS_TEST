@@ -103,6 +103,8 @@ public void button1_click3(GButton source, GEvent event) { //_CODE_:Back:851294:
 
 public void custom_slider1_change2(GCustomSlider source, GEvent event) { //_CODE_:RecAmount:539419:
   println("RecAmount - GCustomSlider >> GEvent." + event + " @ " + millis());
+  
+  
 } //_CODE_:RecAmount:539419:
 
 public void dropList1_click2(GDropList source, GEvent event) { //_CODE_:RecFreq:939366:

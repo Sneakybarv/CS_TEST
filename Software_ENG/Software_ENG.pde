@@ -32,9 +32,9 @@ void setup() {
 
   // Sample data
   recPayments.add(new RecPayment(100, 1));   // Recurring payment of $100 every month
-  salaries.add(new Salary(50000));          // Annual salary of $200,000
-  debts.add(new Debt(100000, 1000));    // Debt: $100,000 with $1000 monthly payment
-  //invest.add(new Investment(10000, 500, 0.00007, 1, 12, numYears)); // Initial $10, $500 monthly contributions, 7% annual return
+  salaries.add(new Salary(0));          // Annual salary of $200,000
+  debts.add(new Debt(0, 0));    // Debt: $100,000 with $1000 monthly payment
+  invest.add(new Investment(5000, 400, 0.0007, 12, numYears));   
   initalMoney = 0;                      // Starting with $100,000
 
   updateGraph();
