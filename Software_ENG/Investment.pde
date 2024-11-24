@@ -19,6 +19,30 @@ class Investment {
     this.monthsElapsed = 0; // Investment starts at month 0
   }
 
+//Methods
+
+  // Update methods for different parameters
+  void updateInitialAmount(float newAmount) {
+    this.initialAmount = newAmount;
+    reset(); // Reset balance and recalculate with new initial amount
+  }
+
+  void updateMonthlyContribution(float newContribution) {
+    this.monthlyContribution = newContribution;
+  }
+
+  void updateAnnualRate(float newRate) {
+    this.annualRate = newRate;
+  }
+
+  void updateCompoundingFreq(int newCompoundingFreq) {
+    this.compoundingFrequency = newCompoundingFreq;
+  }
+
+  void updateDurationYears(int newDuration) {
+    this.durationYears = newDuration;
+  }
+
   // Calculate the  effect of contributions and interest for a given month
   float calcNet(int month) {
     int totalMonths = durationYears * 12;
@@ -45,23 +69,7 @@ class Investment {
     return currentBalance - (initialAmount + monthlyContribution * monthsElapsed);
   }
 
-  // Update methods for different parameters
-  void updateInitialAmount(float newAmount) {
-    this.initialAmount = newAmount;
-    reset(); // Reset balance and recalculate with new initial amount
-  }
-
-  void updateMonthlyContribution(float newContribution) {
-    this.monthlyContribution = newContribution;
-  }
-
-  void updateAnnualRate(float newRate) {
-    this.annualRate = newRate;
-  }
-
-  void updateDurationYears(int newDuration) {
-    this.durationYears = newDuration;
-  }
+  
 
   // Reset the balance to the recalculated amount 
   void reset() {

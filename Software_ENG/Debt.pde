@@ -1,6 +1,3 @@
-
-//te
-
 class Debt {
 
   float initialAmount;
@@ -15,10 +12,11 @@ class Debt {
   }
 
 //Methods
-   void updateDebtAmount(float newDebtAmount) {  //Updating amount fo debt
+
+  //Update Methods
+   void updateDebtAmount(float newDebtAmount) {  //Updating amount of debt
      this.initialAmount = newDebtAmount;
    }
-   
    void updateDebtPayment(float newDebtPayment) {  //Updating frequency with new amount
      this.monthlyPayment = newDebtPayment;
    }

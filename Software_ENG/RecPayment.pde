@@ -8,6 +8,7 @@ class RecPayment {   // Reccuring payments
     this.amount = a;
     this.frequency = f;
   }
+  
 //Methods
   float calcNet(int month) {
      if (month % this.frequency == 0) {  
@@ -17,5 +18,13 @@ class RecPayment {   // Reccuring payments
        return 0;
      }
     
+  }
+  
+  //Update methods
+  void updateRecAmount(float newAmount) {
+    this.amount = newAmount;
+  }
+  void updateRecFreq(int newFreq) {
+    this.frequency = newFreq;
   }
 }

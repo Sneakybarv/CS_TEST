@@ -27,11 +27,17 @@ void displayScreen() {  //Display screen
     
     // Show/hide relevant sliders
     SalarySlider.setVisible(false);
+    
     DebtAmount.setVisible(false);
     DebtMonthlyPayment.setVisible(false);
     
     RecAmount.setVisible(false);
     RecFreq.setVisible(false);
+    
+    InvestAmount.setVisible(false);
+    InvestMonthly.setVisible(false);
+    InvestRate.setVisible(false);
+    InvestComp.setVisible(false);
     
   }
   
@@ -69,6 +75,10 @@ void displayScreen() {  //Display screen
     DebtMonthlyPayment.setVisible(false);
     RecAmount.setVisible(false);
     RecFreq.setVisible(false);
+    InvestAmount.setVisible(false);
+    InvestMonthly.setVisible(false);
+    InvestRate.setVisible(false);
+    InvestComp.setVisible(false);
     
   }
   
@@ -106,6 +116,10 @@ void displayScreen() {  //Display screen
     DebtMonthlyPayment.setVisible(false);
     RecAmount.setVisible(false);
     RecFreq.setVisible(false);
+    InvestAmount.setVisible(false);
+    InvestMonthly.setVisible(false);
+    InvestRate.setVisible(false);
+    InvestComp.setVisible(false);
     
   }
   
@@ -143,6 +157,10 @@ void displayScreen() {  //Display screen
     DebtMonthlyPayment.setVisible(true);
     RecAmount.setVisible(false);
     RecFreq.setVisible(false);
+    InvestAmount.setVisible(false);
+    InvestMonthly.setVisible(false);
+    InvestRate.setVisible(false);
+    InvestComp.setVisible(false);
     
   }
   
@@ -181,6 +199,11 @@ void displayScreen() {  //Display screen
     RecAmount.setVisible(false);
     RecFreq.setVisible(false);
     
+    InvestAmount.setVisible(true);
+    InvestMonthly.setVisible(true);
+    InvestRate.setVisible(true);
+    InvestComp.setVisible(true);
+    
   }
   
   else if(screen.equals("editRecurring")) {
@@ -215,8 +238,14 @@ void displayScreen() {  //Display screen
     SalarySlider.setVisible(false);
     DebtAmount.setVisible(false);
     DebtMonthlyPayment.setVisible(false);
+    
     RecAmount.setVisible(true);
     RecFreq.setVisible(true);
+    
+    InvestAmount.setVisible(false);
+    InvestMonthly.setVisible(false);
+    InvestRate.setVisible(false);
+    InvestComp.setVisible(false);
     
   }
 }

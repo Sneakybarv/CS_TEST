@@ -10,6 +10,8 @@ class Salary {  //salary
   }
   
 //Methods
+  
+  //Update Methods
   void updateSalary(float annualSalary)
   {
     this.annualSalary = annualSalary;
