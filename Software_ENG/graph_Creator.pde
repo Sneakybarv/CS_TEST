@@ -1,5 +1,5 @@
 class Graph {  //The main graph
-//Feilds
+//Fields
   float[] balances;
   
 //Constructor

@@ -3,7 +3,7 @@ class Investment {
   float initialAmount;       // Initial investment amount
   float monthlyContribution; // Monthly contribution
   float annualRate;          // Annual interest rate 
-  int compoundingFrequency;  // Times per year interest is compounded (
+  int compoundingFrequency;  // Times per year interest is compounded (DELETE THIS)
   int durationYears;         // Investment duration in years
   float currentBalance;      // Tracks the balance for calculations
   int monthsElapsed;         // Tracks the number of months since the start of the investment
