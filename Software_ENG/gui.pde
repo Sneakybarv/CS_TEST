@@ -66,12 +66,17 @@ public void button1_click1(GButton source, GEvent event) { //_CODE_:EditSalary:5
   prevScreen = screen;
   screen = "editSalary";
   
+  prevSalary = salaries.get(selectedSalary-1).annualSalary;
+  
 } //_CODE_:EditSalary:513285:
 
 public void button2_click1(GButton source, GEvent event) { //_CODE_:EditDebt:615105:
   //println("EditDebt - GButton >> GEvent." + event + " @ " + millis());
   prevScreen = screen;
   screen = "editDebt";
+  
+  prevDebtAmount = debts.get(selectedDebt-1).initialAmount;
+  prevDebtMonthly = debts.get(selectedDebt-1).monthlyPayment;
   
 } //_CODE_:EditDebt:615105:
 
@@ -80,12 +85,18 @@ public void button3_click1(GButton source, GEvent event) { //_CODE_:EditInvestme
   prevScreen = screen;
   screen = "editInvestment";
   
+  prevInvestAmount = invest.get(selectedInvestment-1).initialAmount;
+  prevInvestMonthly = invest.get(selectedInvestment-1).monthlyContribution;
+  prevInvestRate = invest.get(selectedInvestment-1).annualRate * 100; // multiply by 100 for scaling
+  
 } //_CODE_:EditInvestment:636975:
 
 public void button4_click1(GButton source, GEvent event) { //_CODE_:EditRec:671580:
   //println("EditRecurring - GButton >> GEvent." + event + " @ " + millis());
   prevScreen = screen;
   screen = "editRecurring";
+  
+  prevRecMonthly = recPayments.get(selectedRecPayment-1).amount;
   
 } //_CODE_:EditRec:671580:
 

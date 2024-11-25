@@ -5,14 +5,30 @@ void displayScreen() {  //Display screen
     
     background(235, 250, 241);
     
+    //Page Title
+    textAlign(CENTER);
+    textSize(40);
+    text("Overview", width/2, 50);
+    
+    
+    //Text Labels
     textAlign(RIGHT);
     textSize(20);
     
-    text("Salary:", 220, 130);
-    text("Debt:", 220, 230);
-    text("Investment:", 220, 330);
+    text("Salary:", 220, 131);
+    text("Debt:", 220, 231);
+    text("Investment:", 220, 331);
     text("Recurring", 220, 420);
     text("Payment:", 220, 445);
+    
+    
+    //Amount Previews
+    textAlign(LEFT);
+    text("Yearly: $" + str(salaries.get(selectedSalary-1).annualSalary), 340, 131);
+    text("Amount: $" + str(debts.get(selectedDebt-1).initialAmount), 340, 231);
+    text("Monthly: $" + str(invest.get(selectedInvestment-1).monthlyContribution), 340, 331);
+    text("Monthly: $" + str(recPayments.get(selectedRecPayment-1).amount), 340, 431);
+    
     
     // Show dropdowns
     SalarySelect.setVisible(true);
@@ -129,6 +145,13 @@ void displayScreen() {  //Display screen
     textSize(20);
     text("Yearly Salary ($):", 275, 475);
     
+    //Previous values
+    textSize(16);
+    textAlign(LEFT);
+    text("Before this edit:", 10, 580);
+    textAlign(CENTER);
+    text("$" + str(prevSalary), 275, 580);
+    
   }
   
   else if(screen.equals("editDebt")) {
@@ -176,6 +199,14 @@ void displayScreen() {  //Display screen
     textSize(18);
     text("Total Amount:", 175, 475);
     text("Monthly Payment:", 375, 475);
+    
+    //Previous values
+    textSize(16);
+    textAlign(LEFT);
+    text("Before this edit:", 10, 580);
+    textAlign(CENTER);
+    text("$" + str(prevDebtAmount), 175, 580);
+    text("$" + str(prevDebtMonthly), 375, 580);
     
   }
   
@@ -227,6 +258,15 @@ void displayScreen() {  //Display screen
     text("Monthly:", 265, 485);
     text("Return Rate (%):", 430, 485);
     
+    //Previous values
+    textSize(16);
+    textAlign(LEFT);
+    text("Before this edit:", 10, 580);
+    textAlign(CENTER);
+    text("$" + str(prevInvestAmount), 150, 580);
+    text("$" + str(prevInvestMonthly), 265, 580);
+    text(str(prevInvestRate) + "%", 430, 580);
+    
   }
   
   else if(screen.equals("editRecurring")) {
@@ -275,7 +315,13 @@ void displayScreen() {  //Display screen
     textAlign(CENTER);
     textSize(20);
     text("Monthly Payment:", 275, 475);
- 
+    
+    //Previous values
+    textSize(16);
+    textAlign(LEFT);
+    text("Before this edit:", 10, 580);
+    textAlign(CENTER);
+    text("$" + str(prevRecMonthly), 275, 580);
     
   }
 }

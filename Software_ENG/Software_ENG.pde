@@ -12,6 +12,12 @@ String nextPrevScreen;
 
 int selectedSalary, selectedDebt, selectedInvestment, selectedRecPayment;
 
+// Variables to keep track of all amounts prior to editing to compare while editing
+float prevSalary;
+float prevDebtAmount, prevDebtMonthly;
+float prevInvestAmount, prevInvestMonthly, prevInvestRate;
+float prevRecMonthly;
+
 // Lists of finance elements:
 ArrayList<RecPayment> recPayments = new ArrayList<RecPayment>();
 ArrayList<Salary> salaries = new ArrayList<Salary>();
@@ -50,7 +56,7 @@ void setup() {
   for (int i=0; i<5; i++) {
     salaries.add(new Salary(0));
     debts.add(new Debt(0, 0));
-    invest.add(new Investment(0, 0, 0, 0, numYears));
+    invest.add(new Investment(0, 0, 0, numYears));
     recPayments.add(new RecPayment(0));
   }
 
