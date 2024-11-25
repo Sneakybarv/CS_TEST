@@ -150,6 +150,18 @@ public void custom_slider1_change5(GCustomSlider source, GEvent event) { //_CODE
   updateGraph();
 } //_CODE_:InvestRate:514581:
 
+public void custom_slider1_change6(GCustomSlider source, GEvent event) { //_CODE_:InitialMoney:288239:
+  //println("InitialMoney - GCustomSlider >> GEvent." + event + " @ " + millis());
+  
+  initialMoney = InitialMoney.getValueF();
+  
+} //_CODE_:InitialMoney:288239:
+
+public void button1_click4(GButton source, GEvent event) { //_CODE_:Start:495619:
+  //println("Start - GButton >> GEvent." + event + " @ " + millis());
+  screen = "overview";
+} //_CODE_:Start:495619:
+
 
 
 // Create all the GUI controls. 
@@ -159,23 +171,25 @@ public void createGUI(){
   G4P.setGlobalColorScheme(GCScheme.BLUE_SCHEME);
   G4P.setMouseOverEnabled(false);
   surface.setTitle("Sketch Window");
-  DebtAmount = new GCustomSlider(this, 100, 490, 150, 60, "grey_blue");
+  DebtAmount = new GCustomSlider(this, 100, 490, 150, 60, "blue18px");
   DebtAmount.setShowValue(true);
   DebtAmount.setShowLimits(true);
   DebtAmount.setLimits(0.0, 0.0, 100000.0);
   DebtAmount.setShowTicks(true);
   DebtAmount.setNumberFormat(G4P.DECIMAL, 2);
+  DebtAmount.setLocalColorScheme(GCScheme.GREEN_SCHEME);
   DebtAmount.setOpaque(true);
   DebtAmount.addEventHandler(this, "custom_slider1_change1");
-  DebtMonthlyPayment = new GCustomSlider(this, 300, 490, 150, 60, "grey_blue");
+  DebtMonthlyPayment = new GCustomSlider(this, 300, 490, 150, 60, "blue18px");
   DebtMonthlyPayment.setShowValue(true);
   DebtMonthlyPayment.setShowLimits(true);
   DebtMonthlyPayment.setLimits(0.0, 0.0, 5000.0);
   DebtMonthlyPayment.setShowTicks(true);
   DebtMonthlyPayment.setNumberFormat(G4P.DECIMAL, 2);
+  DebtMonthlyPayment.setLocalColorScheme(GCScheme.GREEN_SCHEME);
   DebtMonthlyPayment.setOpaque(true);
   DebtMonthlyPayment.addEventHandler(this, "custom_slider2_change1");
-  SalarySlider = new GCustomSlider(this, 100, 490, 350, 60, "grey_blue");
+  SalarySlider = new GCustomSlider(this, 100, 490, 350, 60, "purple18px");
   SalarySlider.setShowValue(true);
   SalarySlider.setShowLimits(true);
   SalarySlider.setLimits(0.0, 0.0, 200000.0);
@@ -188,63 +202,88 @@ public void createGUI(){
   SalarySelect.addEventHandler(this, "dropList1_click1");
   DebtSelect = new GDropList(this, 250, 210, 50, 180, 5, 10);
   DebtSelect.setItems(loadStrings("list_819667"), 0);
+  DebtSelect.setLocalColorScheme(GCScheme.GREEN_SCHEME);
   DebtSelect.addEventHandler(this, "dropList2_click1");
   InvestmentSelect = new GDropList(this, 250, 310, 50, 180, 5, 10);
   InvestmentSelect.setItems(loadStrings("list_626138"), 0);
+  InvestmentSelect.setLocalColorScheme(GCScheme.YELLOW_SCHEME);
   InvestmentSelect.addEventHandler(this, "dropList3_click1");
   RecSelect = new GDropList(this, 250, 410, 50, 180, 5, 10);
   RecSelect.setItems(loadStrings("list_635791"), 0);
+  RecSelect.setLocalColorScheme(GCScheme.ORANGE_SCHEME);
   RecSelect.addEventHandler(this, "dropList4_click1");
   EditSalary = new GButton(this, 550, 110, 100, 30);
   EditSalary.setText("Edit Salary");
   EditSalary.addEventHandler(this, "button1_click1");
   EditDebt = new GButton(this, 550, 210, 100, 30);
   EditDebt.setText("Edit Debt");
+  EditDebt.setLocalColorScheme(GCScheme.GREEN_SCHEME);
   EditDebt.addEventHandler(this, "button2_click1");
   EditInvestment = new GButton(this, 550, 310, 100, 30);
   EditInvestment.setText("Edit Investment");
+  EditInvestment.setLocalColorScheme(GCScheme.YELLOW_SCHEME);
   EditInvestment.addEventHandler(this, "button3_click1");
   EditRec = new GButton(this, 550, 410, 100, 30);
   EditRec.setText("Edit Payment");
+  EditRec.setLocalColorScheme(GCScheme.ORANGE_SCHEME);
   EditRec.addEventHandler(this, "button4_click1");
-  Graph = new GButton(this, 680, 500, 100, 40);
+  Graph = new GButton(this, 625, 500, 100, 40);
   Graph.setText("Graph");
+  Graph.setLocalColorScheme(GCScheme.CYAN_SCHEME);
   Graph.addEventHandler(this, "button1_click2");
-  Back = new GButton(this, 550, 500, 100, 40);
+  Back = new GButton(this, 625, 500, 100, 40);
   Back.setText("Back");
+  Back.setLocalColorScheme(GCScheme.GOLD_SCHEME);
   Back.addEventHandler(this, "button1_click3");
-  RecAmount = new GCustomSlider(this, 100, 490, 350, 60, "grey_blue");
+  RecAmount = new GCustomSlider(this, 100, 490, 350, 60, "red_yellow18px");
   RecAmount.setShowValue(true);
   RecAmount.setShowLimits(true);
   RecAmount.setLimits(0.0, 0.0, 1000.0);
   RecAmount.setShowTicks(true);
   RecAmount.setNumberFormat(G4P.DECIMAL, 2);
+  RecAmount.setLocalColorScheme(GCScheme.ORANGE_SCHEME);
   RecAmount.setOpaque(true);
   RecAmount.addEventHandler(this, "custom_slider1_change2");
-  InvestAmount = new GCustomSlider(this, 100, 500, 100, 50, "grey_blue");
+  InvestAmount = new GCustomSlider(this, 100, 500, 100, 50, "red_yellow18px");
   InvestAmount.setShowValue(true);
   InvestAmount.setShowLimits(true);
   InvestAmount.setLimits(0.0, 0.0, 10000.0);
   InvestAmount.setShowTicks(true);
   InvestAmount.setNumberFormat(G4P.DECIMAL, 2);
+  InvestAmount.setLocalColorScheme(GCScheme.YELLOW_SCHEME);
   InvestAmount.setOpaque(true);
   InvestAmount.addEventHandler(this, "custom_slider1_change3");
-  InvestMonthly = new GCustomSlider(this, 215, 500, 100, 50, "grey_blue");
+  InvestMonthly = new GCustomSlider(this, 215, 500, 100, 50, "red_yellow18px");
   InvestMonthly.setShowValue(true);
   InvestMonthly.setShowLimits(true);
   InvestMonthly.setLimits(0.0, 0.0, 2000.0);
   InvestMonthly.setShowTicks(true);
   InvestMonthly.setNumberFormat(G4P.DECIMAL, 2);
+  InvestMonthly.setLocalColorScheme(GCScheme.YELLOW_SCHEME);
   InvestMonthly.setOpaque(true);
   InvestMonthly.addEventHandler(this, "custom_slider1_change4");
-  InvestRate = new GCustomSlider(this, 330, 500, 200, 50, "grey_blue");
+  InvestRate = new GCustomSlider(this, 330, 500, 250, 50, "red_yellow18px");
   InvestRate.setShowValue(true);
   InvestRate.setShowLimits(true);
   InvestRate.setLimits(0.0, 0.0, 5.0);
   InvestRate.setShowTicks(true);
   InvestRate.setNumberFormat(G4P.DECIMAL, 2);
+  InvestRate.setLocalColorScheme(GCScheme.YELLOW_SCHEME);
   InvestRate.setOpaque(true);
   InvestRate.addEventHandler(this, "custom_slider1_change5");
+  InitialMoney = new GCustomSlider(this, 250, 490, 350, 60, "blue18px");
+  InitialMoney.setShowValue(true);
+  InitialMoney.setShowLimits(true);
+  InitialMoney.setLimits(0.0, 0.0, 500000.0);
+  InitialMoney.setShowTicks(true);
+  InitialMoney.setNumberFormat(G4P.DECIMAL, 2);
+  InitialMoney.setLocalColorScheme(GCScheme.CYAN_SCHEME);
+  InitialMoney.setOpaque(true);
+  InitialMoney.addEventHandler(this, "custom_slider1_change6");
+  Start = new GButton(this, 300, 400, 200, 50);
+  Start.setText("START TRACKING");
+  Start.setLocalColorScheme(GCScheme.GOLD_SCHEME);
+  Start.addEventHandler(this, "button1_click4");
 }
 
 // Variable declarations 
@@ -266,3 +305,5 @@ GCustomSlider RecAmount;
 GCustomSlider InvestAmount; 
 GCustomSlider InvestMonthly; 
 GCustomSlider InvestRate; 
+GCustomSlider InitialMoney; 
+GButton Start; 

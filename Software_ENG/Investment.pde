@@ -3,7 +3,6 @@ class Investment {
   float initialAmount;       // Initial investment amount
   float monthlyContribution; // Monthly contribution
   float annualRate;          // Annual interest rate 
-  //int compoundingFrequency;  // Times per year interest is compounded (DELETE THIS)
   int durationYears;         // Investment duration in years
   float currentBalance;      // Tracks the balance for calculations
   int monthsElapsed;         // Tracks the number of months since the start of the investment
@@ -13,7 +12,6 @@ class Investment {
     this.initialAmount = initialAmount;
     this.monthlyContribution = monthlyContribution;
     this.annualRate = annualRate;
-    //this.compoundingFrequency = compoundingFrequency;
     this.durationYears = durationYears;
     this.currentBalance = initialAmount; // Start with the initial amount
     this.monthsElapsed = 0; // Investment starts at month 0
@@ -34,10 +32,6 @@ class Investment {
   void updateAnnualRate(float newRate) {
     this.annualRate = newRate;
   }
-
-  //void updateCompoundingFreq(int newCompoundingFreq) {
-  //  this.compoundingFrequency = newCompoundingFreq;
-  //}
 
   void updateDurationYears(int newDuration) {
     this.durationYears = newDuration;

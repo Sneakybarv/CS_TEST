@@ -1,7 +1,6 @@
 import g4p_controls.*;
 
 // Main sketch file
-Salary salary;
 Graph graph;
 int numYears = 10; // Number of years for projection
 int numMonths = numYears * 12;
@@ -24,7 +23,9 @@ ArrayList<Salary> salaries = new ArrayList<Salary>();
 ArrayList<Debt> debts = new ArrayList<Debt>();
 ArrayList<Investment> invest = new ArrayList<Investment>();
 
-float initalMoney;
+float initialMoney;
+
+PImage background;
 
 void updateGraph() {
   float[] monthlyBalances = calculateAllPoints(); // Get balances over 10 years
@@ -35,21 +36,17 @@ void setup() {
   size(800, 600);
   createGUI();
 
-  // Go to overview screen at setup
-  screen = "overview";
+  background = loadImage("IntroBackground.jpg");
+  background.resize(800, 600);
+
+  // Go to intro screen at setup
+  screen = "intro";
 
   // Select item #1 to edit at setup
   selectedSalary = 1;
   selectedDebt = 1;
   selectedInvestment = 1;
   selectedRecPayment = 1;
-
-  // Sample data
-  //recPayments.add(new RecPayment(100, 1));   // Recurring payment of $100 every month
-  //salaries.add(new Salary(0));          // Annual salary of $200,000
-  //debts.add(new Debt(0, 0));    // Debt: $100,000 with $1000 monthly payment
-  //invest.add(new Investment(5000, 400, 0.0007, 12, numYears))s;
-  //initalMoney = 0;                      // Starting with $100,000
 
 
   // Create 5 empty salaries, debts, investments and recurring paymemts
@@ -67,6 +64,5 @@ void draw() {
   background(255);
   fill(0);
   textSize(12);
-  //graph.drawGraph(); // Display the graph using the Graph class
   displayScreen();
 }

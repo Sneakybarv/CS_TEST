@@ -8,7 +8,7 @@ class RecPayment {   // Reccuring payments
   }
   
 //Methods
-  float calcNet(int month) {
+  float calcNet() {
      return -amount;
   }
   

@@ -15,7 +15,7 @@ class Graph {  //The main graph
     // Graph position and dimensions
     float graphX = 100;
     float graphY = 100;
-    float graphWidth = width - 300;
+    float graphWidth = width - 200;
     float graphHeight = height - 300;
 
     // Find the maximum and minimum balances
@@ -30,16 +30,18 @@ class Graph {  //The main graph
 
     // Draw axis lines
     stroke(0);
-    float zeroY = graphY + graphHeight - ((0 - minBalance) * graphHeight / balanceRange);
+    float zeroY = graphY + graphHeight - ((0 - minBalance) * graphHeight / balanceRange) - 2;
     line(graphX, zeroY, graphX + graphWidth, zeroY); // X-axis (zero line)
+    line(graphX, graphY + graphHeight, graphX + graphWidth, graphY + graphHeight); // X-axis
     line(graphX, graphY, graphX, graphY + graphHeight); // Y-axis
 
     // X-axis: Labels and ticks
     for (int i = 0; i < numYears; i++) {
       float x = graphX + (i * graphWidth / (numYears - 1));
-      line(x, zeroY - 5, x, zeroY + 5); // Tick mark
+      line(x, zeroY - 5, x, zeroY + 5); // Tick mark for zero line
+      line(x, graphY + graphHeight - 5, x, graphY + graphHeight + 5); // Tick mark for X-axis
       textAlign(CENTER);
-      text("Year " + (i + 1), x, zeroY + 20); // Label year number
+      text("Year " + (i + 1), x, graphY + graphHeight + 20); // Label year number
     }
 
     // Y-axis: Labels and ticks
