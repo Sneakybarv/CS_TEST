@@ -51,7 +51,7 @@ void setup() {
     salaries.add(new Salary(0));
     debts.add(new Debt(0, 0));
     invest.add(new Investment(0, 0, 0, 0, numYears));
-    recPayments.add(new RecPayment(0, 1));
+    recPayments.add(new RecPayment(0));
   }
 
   updateGraph();

@@ -109,15 +109,11 @@ public void custom_slider1_change2(GCustomSlider source, GEvent event) { //_CODE
   //println("RecAmount - GCustomSlider >> GEvent." + event + " @ " + millis());
   
   float newRecAmount = RecAmount.getValueF(); // No scaling if the slider is directly set to the desired range
-  recPayments.get(selectedDebt-1).updateRecAmount(newRecAmount);
+  recPayments.get(selectedRecPayment-1).updateRecAmount(newRecAmount);
  
   updateGraph();
   
 } //_CODE_:RecAmount:539419:
-
-public void dropList1_click2(GDropList source, GEvent event) { //_CODE_:RecFreq:939366:
-  println("RecFreq - GDropList >> GEvent." + event + " @ " + millis());
-} //_CODE_:RecFreq:939366:
 
 public void custom_slider1_change3(GCustomSlider source, GEvent event) { //_CODE_:InvestAmount:233064:
   //println("custom_slider1 - GCustomSlider >> GEvent." + event + " @ " + millis());
@@ -142,19 +138,6 @@ public void custom_slider1_change5(GCustomSlider source, GEvent event) { //_CODE
   invest.get(selectedInvestment-1).updateAnnualRate(newInvestRate);
   updateGraph();
 } //_CODE_:InvestRate:514581:
-
-public void dropList1_click3(GDropList source, GEvent event) { //_CODE_:InvestComp:852399:
-  //println("InvestComp - GDropList >> GEvent." + event + " @ " + millis());
-  
-  //int newInvestComp;
-  
-  //if(InvestComp.getSelectedText().equals ("Weekly")) {
-  //  newInvestComp = 52;
-  //}
-  
-  //invest.get(selectedInvestment-1).updateCompoundingFreq(newInvestComp);
-  //updateGraph();
-} //_CODE_:InvestComp:852399:
 
 
 
@@ -189,22 +172,6 @@ public void createGUI(){
   SalarySlider.setNumberFormat(G4P.DECIMAL, 2);
   SalarySlider.setOpaque(true);
   SalarySlider.addEventHandler(this, "custom_slider3_change1");
-  SalaryLabel = new GLabel(this, 100, 100, 100, 50);
-  SalaryLabel.setTextAlign(GAlign.CENTER, GAlign.MIDDLE);
-  SalaryLabel.setText("Salary");
-  SalaryLabel.setOpaque(false);
-  DebtLabel = new GLabel(this, 100, 200, 100, 50);
-  DebtLabel.setTextAlign(GAlign.CENTER, GAlign.MIDDLE);
-  DebtLabel.setText("Debt");
-  DebtLabel.setOpaque(false);
-  InvestmentLabel = new GLabel(this, 100, 300, 100, 50);
-  InvestmentLabel.setTextAlign(GAlign.CENTER, GAlign.MIDDLE);
-  InvestmentLabel.setText("Investment");
-  InvestmentLabel.setOpaque(false);
-  RecLabel = new GLabel(this, 100, 400, 100, 50);
-  RecLabel.setTextAlign(GAlign.CENTER, GAlign.MIDDLE);
-  RecLabel.setText("Recurring Payment");
-  RecLabel.setOpaque(false);
   SalarySelect = new GDropList(this, 250, 110, 50, 180, 5, 10);
   SalarySelect.setItems(loadStrings("list_285648"), 0);
   SalarySelect.addEventHandler(this, "dropList1_click1");
@@ -235,7 +202,7 @@ public void createGUI(){
   Back = new GButton(this, 550, 500, 100, 40);
   Back.setText("Back");
   Back.addEventHandler(this, "button1_click3");
-  RecAmount = new GCustomSlider(this, 100, 490, 200, 60, "grey_blue");
+  RecAmount = new GCustomSlider(this, 100, 490, 350, 60, "grey_blue");
   RecAmount.setShowValue(true);
   RecAmount.setShowLimits(true);
   RecAmount.setLimits(0.0, 0.0, 1000.0);
@@ -243,10 +210,7 @@ public void createGUI(){
   RecAmount.setNumberFormat(G4P.DECIMAL, 2);
   RecAmount.setOpaque(true);
   RecAmount.addEventHandler(this, "custom_slider1_change2");
-  RecFreq = new GDropList(this, 350, 490, 100, 100, 3, 10);
-  RecFreq.setItems(loadStrings("list_939366"), 0);
-  RecFreq.addEventHandler(this, "dropList1_click2");
-  InvestAmount = new GCustomSlider(this, 100, 500, 110, 50, "grey_blue");
+  InvestAmount = new GCustomSlider(this, 100, 500, 100, 50, "grey_blue");
   InvestAmount.setShowValue(true);
   InvestAmount.setShowLimits(true);
   InvestAmount.setLimits(0.0, 0.0, 10000.0);
@@ -254,7 +218,7 @@ public void createGUI(){
   InvestAmount.setNumberFormat(G4P.DECIMAL, 2);
   InvestAmount.setOpaque(true);
   InvestAmount.addEventHandler(this, "custom_slider1_change3");
-  InvestMonthly = new GCustomSlider(this, 225, 500, 80, 50, "grey_blue");
+  InvestMonthly = new GCustomSlider(this, 215, 500, 100, 50, "grey_blue");
   InvestMonthly.setShowValue(true);
   InvestMonthly.setShowLimits(true);
   InvestMonthly.setLimits(0.0, 0.0, 2000.0);
@@ -262,7 +226,7 @@ public void createGUI(){
   InvestMonthly.setNumberFormat(G4P.DECIMAL, 2);
   InvestMonthly.setOpaque(true);
   InvestMonthly.addEventHandler(this, "custom_slider1_change4");
-  InvestRate = new GCustomSlider(this, 320, 500, 80, 50, "grey_blue");
+  InvestRate = new GCustomSlider(this, 330, 500, 200, 50, "grey_blue");
   InvestRate.setShowValue(true);
   InvestRate.setShowLimits(true);
   InvestRate.setLimits(0.0, 0.0, 5.0);
@@ -270,9 +234,6 @@ public void createGUI(){
   InvestRate.setNumberFormat(G4P.DECIMAL, 2);
   InvestRate.setOpaque(true);
   InvestRate.addEventHandler(this, "custom_slider1_change5");
-  InvestComp = new GDropList(this, 420, 500, 100, 90, 2, 10);
-  InvestComp.setItems(loadStrings("list_852399"), 0);
-  InvestComp.addEventHandler(this, "dropList1_click3");
 }
 
 // Variable declarations 
@@ -280,10 +241,6 @@ public void createGUI(){
 GCustomSlider DebtAmount; 
 GCustomSlider DebtMonthlyPayment; 
 GCustomSlider SalarySlider; 
-GLabel SalaryLabel; 
-GLabel DebtLabel; 
-GLabel InvestmentLabel; 
-GLabel RecLabel; 
 GDropList SalarySelect; 
 GDropList DebtSelect; 
 GDropList InvestmentSelect; 
@@ -295,8 +252,6 @@ GButton EditRec;
 GButton Graph; 
 GButton Back; 
 GCustomSlider RecAmount; 
-GDropList RecFreq; 
 GCustomSlider InvestAmount; 
 GCustomSlider InvestMonthly; 
 GCustomSlider InvestRate; 
-GDropList InvestComp; 
